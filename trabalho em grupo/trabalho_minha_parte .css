@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+   }
+   body {
+    background: url('7FFB2FFB-4E29-46AC-A25C-4EA7317DCAB4.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+   }
+   .container {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+   }
+   h1, h2 {
+    margin-bottom: 15px;
+   }
+   p {
+    margin-bottom: 20px;
+   }
+   button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+   }
+   button:hover {
+    background-color: #0056b3;
+   }
+   ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+   }
+   li {
+    margin: 5px 0;
+   }
+   .btn-voltar {
+    margin-top: 20px;
+    background-color: #28a745;
+   }
+   .btn-voltar:hover {
+    background-color: #1e7e34;
+   }
+   body {
+    background: url('./Amanhecer\ sobre\ a\ cidade\ moderna.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+   }
