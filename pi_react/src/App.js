@@ -2,23 +2,47 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  let cesta = ['macarrao', 'queijo','salsicha', 'molho de tomate']
+  let desenha = [];
+
+/*
+
+  function calculadora (a, b , op){
+     calculadora basica
+     if(op == '+'){
+      return a + b
+    }
+    else if (op == '-'){
+      return a - b;
+    }else if (op == '*'){
+      return a * b
+    }else if (op == '/'){
+      return a / b
+    } 
+
+  
+    switch(op){
+      case '+':
+        return a + b
+      case '-':
+        return a + b
+      case '*':
+        return a + b
+      case '/':
+        return a + b
+    }
+  }
+    */
+  for(let i=0; i<3; i++ ){
+    desenha.push(<p> {cesta[i]} </p>)         
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="App">
+      {desenha}
+    </main>
   );
 }
 
