@@ -3,45 +3,20 @@ import './App.css';
 
 function App() {
 
-  let cesta = ['macarrao', 'queijo','salsicha', 'molho de tomate']
-  let desenha = [];
+  let numerico = [0,1,2,3,4,5,6,7,8,9,10]
 
-/*
+  let impares = [];
 
-  function calculadora (a, b , op){
-     calculadora basica
-     if(op == '+'){
-      return a + b
-    }
-    else if (op == '-'){
-      return a - b;
-    }else if (op == '*'){
-      return a * b
-    }else if (op == '/'){
-      return a / b
-    } 
 
-  
-    switch(op){
-      case '+':
-        return a + b
-      case '-':
-        return a + b
-      case '*':
-        return a + b
-      case '/':
-        return a + b
+
+  for(let i=0; i<11; i++ ){
+    if(numerico[i] % 2 != 0){
+      impares.push(<p>{numerico[i]}</p>)
     }
   }
-    */
-  for(let i=0; i<3; i++ ){
-    desenha.push(<p> {cesta[i]} </p>)         
-  }
-
-
   return (
     <main className="App">
-      {desenha}
+      {impares}
     </main>
   );
 }
