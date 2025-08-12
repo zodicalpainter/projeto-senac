@@ -2,43 +2,26 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() { //aqui é java script
-  function calculadora ( a, b, op){
-    switch(op){
-      case '+':
-        return a + b 
-        case '-':
-          return a - b
-          case '*':
-            return a * b
-            case '/'
-            return a/ b
+  let lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+  let numeros=[] 
+
+  // apenas os números impares
+  for (let i = 0; i <lista.length; i++) {
+    if (lista[i] % 2 !== 0) {
+      numeros.push(lista[i]);
     }
   }
-   
-  function calculadora (a, b, op) {
-    if(op == '+'){
-      return a + b 
-    }
-     else if (op == '-'){
-      return a - b;
-     }else if( op == '*'){
-      return a + b 
-     } else if (op == "/"){
-      return a/b 
-     }
-
-     }
+    
 
 
 
   return ( /* aqui é html */
-
-    <main className="App">
-      {calculadora ( 5, 5, '+') } </br>
-
+    <main ClassName= "App">
+    
+      {numeros}
       
     </main>
-  );
+  );   
 }
 
 export default App;
