@@ -1,24 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+function App() { //aqui é java script
+  let lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+  let numeros=[] 
 
-  let numerico = [0,1,2,3,4,5,6,7,8,9,10]
-
-  let impares = [];
-
-
-
-  for(let i=0; i<11; i++ ){
-    if(numerico[i] % 2 != 0){
-      impares.push(<p>{numerico[i]}</p>)
+  // apenas os números impares
+  for (let i = 0; i <lista.length; i++) {
+    if (lista[i] % 2 !== 0) {
+      numeros.push(lista[i]);
     }
   }
-  return (
-    <main className="App">
-      {impares}
+    
+
+
+
+  return ( /* aqui é html */
+    <main ClassName= "App">
+    
+      {numeros}
+      
     </main>
-  );
+  );   
 }
 
 export default App;
