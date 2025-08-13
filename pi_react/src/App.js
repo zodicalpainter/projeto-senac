@@ -2,24 +2,51 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() { //aqui é java script
-  let lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
-  let numeros=[] 
 
-  // apenas os números impares
-  for (let i = 0; i <lista.length; i++) {
-    if (lista[i] % 2 !== 0) {
-      numeros.push(lista[i]);
-    }
+  let email = ""
+  let senha = ""
+
+  function mudaemail (valor){
+    email = valor
+
   }
-    
+  function mudasenha(valor){
+ senha = valor
+  }
+
+  function salvar(){
+    alert("email: " + email + "Senha: " + senha)
+  }
 
 
+let Islogin = true;
 
   return ( /* aqui é html */
     <main ClassName= "App">
-    
-      {numeros}
-      
+
+        <button onClick= {()=>(Islogin = !Islogin)}>
+        {Islogin && ("Cadastrar-se")}
+        {!Islogin && ("Voltar para login")}
+        </button>
+
+      {!Islogin && (
+      <form className="register">
+        
+      </form>
+      )}
+
+        {Islogin && (
+        <form className="login">
+          <p>E-mail:</p>
+          <input type="email" placeholder="Digite seu e-mail" onChange={(e) => mudaemail(e.target.value)}/>
+          <p>Senha:</p>
+          <input type="password" placeholder="digite sua senha" onChange={(e) => mudasenha(e.target.value) }/>
+           <br/><br/>
+              <button className="btn" id="salvar" onClick={() => salvar()}>Salvar</button>
+        </form>
+        )}
+
+
     </main>
   );   
 }
