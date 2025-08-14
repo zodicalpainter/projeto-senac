@@ -4,46 +4,64 @@ import { useState } from 'react';
 
 function App() { //aqui é java script
 
-
+  const [login, setlogin] = useState(true);
   const [user, setuser] = useState({
     email:"",
-    senha:"",
-    phone: "",
-    name:""
-  });
+    senha:""
+  })
 
-  const [Islogin, setIslogin] = useState (true);
-
-  function salvar(){
-    alert("email: " + user.email + "Senha: " + user.senha)
-  }
+  const[cadastro, setcadastro] = useState({
+    name:"",
+    email:"",
+    password: "",
+    phone:""
+  })
 
   return ( /* aqui é html */
     <main ClassName= "App">
+      
+     
+      <div className= "login-box"> 
 
-        <button onClick= {() => setIslogin(!Islogin)}>
-        {Islogin && ("Cadastrar-se")}
-        {!Islogin && ("Voltar para login")}
-        </button>
+      {login && (
+        <form>
+          <h1>Login</h1>
 
-      {!Islogin && (
-      <form className="register">
-        
-      </form>
-      )}
-
-        {Islogin && (
-        <form className="login">
-          <p>E-mail:</p>
-          <input type="email" placeholder="Digite seu e-mail" onChange={(e) => setuser({...user, email: e.target.value})}/>
-          <p>Senha:</p>
-          <input type="password" placeholder="digite sua senha" onChange={(e) => setuser({...user, senha: e.target.value})}/>
-           <br/><br/>
-              <button className="btn" id="salvar" onClick={() => salvar()}>Salvar</button>
+            <p>E-mail:</p>
+          <input placeholder="Digite o e-mail do cadastro:" onchange = {(e) => setuser({...user, email: e.target.value})} />
+            <p>Senha:</p>
+          <input placeholder="Digite sua senha:" onchange = {(e) => setuser({...user, senha: e.target.value})}/>
+          <br/><br/>
+          <button className="btn">Entrar</button>
         </form>
-        )}
+      )}
+      {!login && (
+        <form>
+          <h2>Cadastro:</h2>
+
+          <p>Nome completo:</p>
+         
+          <input placeholder='Digite seu nome completo...' onchange = {(e) => setcadastro({...cadastro, name: e.target.value})}/>
+            <p>Senha:</p>
+          <input placeholder='escolha sua senha...'onchange = {(e) => setcadastro({...cadastro, password: e.target.value})}/>
+            <p>E-mail</p>
+          <input placeholder='digite o email para cadastro...'onchange = {(e) => setcadastro({...cadastro, email: e.target.value})}/>
+            <p>Telefone:</p>
+          <input placeholder='digite um telefone valido...'onchange = {(e) => setcadastro({...cadastro, phone: e.target.value})}/>
+
+          <br/><br/><button className="btn">Cadastrar</button>
+        </form>
+      
+      )} <br/>
+        <div className="displaybutton">
+          <button className ="btn" onClick= {() => setlogin(!login)}>
+          {login && ("Cadastrar-se")}
+          {!login && ("Ir para o login")}
+          </button>
+        </div>
 
 
+      </div>
     </main>
   );   
 }
