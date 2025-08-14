@@ -1,30 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() { //aqui é java script
 
-  let email = ""
-  let senha = ""
 
-  function mudaemail (valor){
-    email = valor
+  const [user, setuser] = useState({
+    email:"",
+    senha:"",
+    phone: "",
+    name:""
+  });
 
-  }
-  function mudasenha(valor){
- senha = valor
-  }
+  const [Islogin, setIslogin] = useState (true);
 
   function salvar(){
-    alert("email: " + email + "Senha: " + senha)
+    alert("email: " + user.email + "Senha: " + user.senha)
   }
-
-
-let Islogin = true;
 
   return ( /* aqui é html */
     <main ClassName= "App">
 
-        <button onClick= {()=>(Islogin = !Islogin)}>
+        <button onClick= {() => setIslogin(!Islogin)}>
         {Islogin && ("Cadastrar-se")}
         {!Islogin && ("Voltar para login")}
         </button>
@@ -38,9 +35,9 @@ let Islogin = true;
         {Islogin && (
         <form className="login">
           <p>E-mail:</p>
-          <input type="email" placeholder="Digite seu e-mail" onChange={(e) => mudaemail(e.target.value)}/>
+          <input type="email" placeholder="Digite seu e-mail" onChange={(e) => setuser({...user, email: e.target.value})}/>
           <p>Senha:</p>
-          <input type="password" placeholder="digite sua senha" onChange={(e) => mudasenha(e.target.value) }/>
+          <input type="password" placeholder="digite sua senha" onChange={(e) => setuser({...user, senha: e.target.value})}/>
            <br/><br/>
               <button className="btn" id="salvar" onClick={() => salvar()}>Salvar</button>
         </form>
