@@ -120,3 +120,35 @@ body {
   color: #333;
   font-size: 24px;
 }
+
+
+.toast{
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #333;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px #333;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: toastFadeInOut 5s forwards;
+  z-index: 9999;
+}
+
+@keyframes toastFadeInOut{
+  0%{
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  10%, 90%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100%{
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  
+}
