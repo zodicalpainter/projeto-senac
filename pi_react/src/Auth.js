@@ -64,6 +64,7 @@ function PrivateSession(){
       if(error) throw error
 
       setMsg("logado");
+      localStorage.setItem("supaSession", data.session)
       setTimeout(
       nav('/home',{replace: true}), 5002
     ) 
