@@ -78,25 +78,18 @@ function PrivateSession(){
   
   return ( /* aqui é html */
   <main ClassName= "App">
-    
-     
-      <div className= "login-box"> 
-
+    <div className= "login-box"> 
       {login && (
         <form>
           <h1>Login</h1>
-
             <p>E-mail:</p>
           <input placeholder="Digite o e-mail do cadastro:" onChange = {(e) => setuser({...user, email: e.target.value})} />
             <p>Senha:</p>
           <input type="password" placeholder="Digite sua senha:" onChange = {(e) => setuser({...user, password: e.target.value})}/>
-          
-          <br/><br/>
-          
-          <button className="btn" onClick={logar} disabled={loading}>
+              <br/><br/>
+            <button className="btn" onClick={logar} disabled={loading}>
             {Setloading ? "Entrar" : "Entrando..."}
             </button>
-
         </form>
       )}
       {!login && (
@@ -114,12 +107,10 @@ function PrivateSession(){
             
             <p>Telefone:</p>
           <input placeholder='digite um telefone valido...' onChange = {(e) => setuser({...user, phone: e.target.value})}/>
-
-          <br/>
+              <br/>
             <button className="btn" onClick={register} disabled={loading}>
             {Setloading ? "Cadastrar" : "cadastrando..."}
             </button>
-
         </form>
       
       )} <br/>
@@ -129,13 +120,9 @@ function PrivateSession(){
           {!login && ("Ir para o login")}
           </button>
         </div>
-
-
-      </div>
+    </div>
     {Msg && (<div className= "toast">{Msg}</div>)}
-
   </main>
   );   
 }
-
 export default Auth;
