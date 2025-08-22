@@ -33,6 +33,14 @@
         .insert([{ ...user, auth_id: uid }]);
       //.select()
     }
+
+    const[ dados, setDados] = useState([])
+    async function lerdados(){
+      let { data: datausers, error } = await supabase
+  .from('users')
+  .select('*')
+      setDados(datausers);
+    }
     return ( /* aqui é html */
     <div ClassName= "screen">
       <h1>Cadastro candidato</h1>
@@ -48,6 +56,20 @@
 
           <button onClick={salvarUser}>Salvar</button>
       </form>
+
+    <button onClick={lerdados}>Ver</button>
+
+    {dados.map(
+      d =>(
+        <>
+        <br/><br/>
+        {d.name}<br/>
+        {d.cpf}<br/>
+        {d.telfixo}
+
+        </>
+      )
+    )}
     </div>
     );   
   }
