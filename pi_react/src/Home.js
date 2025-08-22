@@ -1,6 +1,6 @@
   import logo from './logo.svg';
   import './App.css';
-  import {useState} from 'react';
+  import {useState, useEffect} from 'react';
   import {createClient} from "@supabase/supabase-js";
   import {useNavigate} from 'react-router-dom';
   import {BrowserRouter as Router, Routes, Route, Navigate, Link, Outlet} from 'react-router-dom';
@@ -20,6 +20,12 @@
       tipo:""
     })
 
+    const[ dados, setDados] = useState([])
+
+    useEffect(()=>{
+      lerdados()
+    }, []) 
+
     async function salvarUser(){
       const { data: userData, error } = await supabase.auth.getUser();
       const uid = userData?.user?.id;
@@ -34,13 +40,24 @@
       //.select()
     }
 
-    const[ dados, setDados] = useState([])
-    async function lerdados(){
+
+    async function lerdados(filtro){
+      if(filtro){
       let { data: datausers, error } = await supabase
-  .from('users')
-  .select('*')
+        .from('users')
+        .select('*')
+        .eq('telfixo',filtro);
+
+      setDados(datausers);
+    }else{
+      let { data: datausers, error } = await supabase
+        .from('users')
+        .select('*')
+        
       setDados(datausers);
     }
+  }
+
     return ( /* aqui é html */
     <div ClassName= "screen">
       <h1>Cadastro candidato</h1>
@@ -57,7 +74,10 @@
           <button onClick={salvarUser}>Salvar</button>
       </form>
 
-    <button onClick={lerdados}>Ver</button>
+    <button onClick={() => lerdados("telfixo")}>Ver telfixo</button>
+    <button onClick={() => lerdados("telmovel")}>Ver telmovel</button>
+    <button onClick={() => lerdados()}>limpar filtro</button>
+
 
     {dados.map(
       d =>(
