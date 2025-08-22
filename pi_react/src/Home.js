@@ -61,13 +61,13 @@
 
     {dados.map(
       d =>(
-        <>
+        <div key={d.id}>
         <br/><br/>
         {d.name}<br/>
         {d.cpf}<br/>
         {d.telfixo}
 
-        </>
+        </div>
       )
     )}
     </div>
